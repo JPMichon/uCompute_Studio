@@ -30,7 +30,7 @@ Thanks to its standard **2.54 mm (0.1") pitch** 14-pin expansion header (**H1**)
 
 | uCompute-Studio (`H1`) | Raspberry Pi Pico Pin | Physical Pin # | Signal Role |
 | :--- | :--- | :--- | :--- |
-| **5V** | **VBUS** | Pin 40 | 5V Power (DAC & MIDI loop) |
+| **5V** | **VBUS** | Pin 40 | 5V Power (74HCT14D, DAC & MIDI loop) |
 | **GND** *(either pin)* | **GND** | Pin 38 *(or any GND)* | Common Ground |
 | **3V3** | **3V3 (OUT)** | Pin 36 | 3.3V Logic Pull-up |
 | **GP16** | **GP16** | Pin 21 | I2S Data (`DIN`) |
