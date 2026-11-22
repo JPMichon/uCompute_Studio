@@ -19,6 +19,28 @@ Because the entire **uCompute** hardware lineage shares a common front expansion
 - **🎓 µCompute Junior:** Designed as the accessible, beginner-friendly "little brother" of the flagship boards using a *Bring Your Own Pico* approach and easy-to-solder 0805 components. Paired with **uCompute-Studio**, it forms an approachable, full-featured DIY synthesizer with screen and controls — without requiring fine-pitch QFN soldering expertise.
 - **🍓 Vanilla Raspberry Pi Pico / Pico 2:** Built on an open architecture, **uCompute-Studio** can be wired or socketed directly to a standard Raspberry Pi Pico for ultra-compact, standalone MIDI-to-Audio synthesis.
 
+## 🧩 Breadboard & Standalone Pico Wiring Guide
+
+Thanks to its standard **2.54 mm (0.1") pitch** 14-pin expansion header (**H1**), **uCompute-Studio** can be plugged directly into a standard solderless breadboard alongside a header-mounted **Raspberry Pi Pico / Pico 2** — no custom carrier board required.
+
+### Breadboard Setup Steps
+1. **Mount the Headers:** Solder a straight 14-pin male header (`2.54 mm`) to the **H1** expansion port on **uCompute-Studio** (pointing downward) and standard male headers to your **Raspberry Pi Pico**.
+2. **Seat on Breadboard:** Insert both the **Raspberry Pi Pico** and **uCompute-Studio** across the center trench of your breadboard. *(Tip: Verify the silkscreen labels on **H1** — `5V`, `GND`, `3V3`, `GP16`–`GP18`, `GP00`–`GP01` — so you keep track of each row).*
+3. **Connect the Jumper Wires:** Using 8 standard male-to-male jumper wires, link the **H1** pins to the corresponding Raspberry Pi Pico pins:
+
+| uCompute-Studio (`H1`) | Raspberry Pi Pico Pin | Physical Pin # | Signal Role |
+| :--- | :--- | :--- | :--- |
+| **5V** | **VBUS** | Pin 40 | 5V Power (DAC & MIDI loop) |
+| **GND** *(either pin)* | **GND** | Pin 38 *(or any GND)* | Common Ground |
+| **3V3** | **3V3 (OUT)** | Pin 36 | 3.3V Logic Pull-up |
+| **GP16** | **GP16** | Pin 21 | I2S Data (`DIN`) |
+| **GP17** | **GP17** | Pin 22 | I2S Bit Clock (`BCK`) |
+| **GP18** | **GP18** | Pin 24 | I2S Word Select (`LCK`) |
+| **GP01** | **GP01** | Pin 2 | MIDI IN (`UART0 RX`) |
+| **GP00** | **GP00** | Pin 1 | MIDI OUT (`UART0 TX`) |
+
+> **💡 Power Tip:** Make sure to connect **5V** on `H1` to **VBUS** (Pin 40) on the Pico so the onboard `PCM5102A` DAC and the opto-isolated MIDI circuit receive full 5V USB power.
+
 ---
 
 ## ✨ Key Features
