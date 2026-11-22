@@ -4,6 +4,7 @@
 
 <img width="1003" height="451" alt="image" src="https://github.com/user-attachments/assets/59799987-61ee-4314-898c-2d1ac9b2d84a" />
 
+
 Based on the hardware design of [MidiSynth-HAT](https://github.com/JPMichon/MidiSynth-HAT), **uCompute-Studio** brings high-fidelity 32-bit I2S stereo audio and hardware MIDI IN/OUT to compact microcontroller projects.
 
 
