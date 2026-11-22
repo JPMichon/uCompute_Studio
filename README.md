@@ -2,7 +2,17 @@
 
 **uCompute-Studio** is an open-architecture I2S audio and MIDI expansion board designed to enrich the **uCompute Ecosystem**. Thanks to its open, standardized pinout, it can also be used directly as a standalone synthesizer and MIDI interface with a **vanilla Raspberry Pi Pico (RP2040 / RP2350)** — no carrier board required.
 
-Inspired by the hardware design of [MidiSynth-HAT](https://github.com), **uCompute-Studio** brings high-fidelity 32-bit I2S stereo audio and hardware MIDI IN/OUT to compact microcontroller projects.
+Based on the hardware design of [MidiSynth-HAT](https://github.com/JPMichon/MidiSynth-HAT), **uCompute-Studio** brings high-fidelity 32-bit I2S stereo audio and hardware MIDI IN/OUT to compact microcontroller projects.
+
+---
+
+## 🔗 Universal Ecosystem & Standalone Compatibility
+
+Because the entire **uCompute** hardware lineage shares a common front expansion header (`5V`, `GND`, `3V3`, `GP16`–`GP18`, `GP00`–`GP01`), **uCompute-Studio** requires zero wiring changes across platforms:
+
+- **💻 RP2040 µCompute & 🚀 RP2350 µCompute2:** Plugs directly into the bottom expansion port of the flagship SMD boards. On the **RP2350 µCompute2** (running at 150 MHz with extended flash), the extra processing headroom enables even richer wavetable synthesis alongside the onboard 240×240 IPS display and MicroSD storage.
+- **🎓 µCompute Junior:** Designed as the accessible, beginner-friendly "little brother" of the flagship boards using a *Bring Your Own Pico* approach and easy-to-solder 0805 components. Paired with **uCompute-Studio**, it forms an approachable, full-featured DIY synthesizer with screen and controls — without requiring fine-pitch QFN soldering expertise.
+- **🍓 Vanilla Raspberry Pi Pico / Pico 2:** Built on an open architecture, **uCompute-Studio** can be wired or socketed directly to a standard Raspberry Pi Pico for ultra-compact, standalone MIDI-to-Audio synthesis.
 
 ---
 
@@ -14,6 +24,16 @@ Inspired by the hardware design of [MidiSynth-HAT](https://github.com), **uCompu
   - Standard 5-pin DIN **MIDI-IN** isolated via a high-gain **TLP785GB** optocoupler with calibrated pull-up resistors (`R3`/`R4`) for crisp 31,250 baud signal edges.
   - Buffered **MIDI-OUT** (`GP00`) and dedicated activity LEDs (`IN` / `OUT`) driven through a **74HCT14D** Schmitt-trigger inverter so indicator loads never affect the UART RX line.
 - **Real-Time MicroPython Sound Engine:** Includes dual-core (`_thread`) and native ARM assembly (`@micropython.viper`) firmware turning the board into an expressive, low-latency standalone MIDI synthesizer.
+
+---
+
+## 📸 Hardware Prototype & Validation
+
+Before committing to the final 2-layer PCB fabrication, the circuit was fully prototyped and validated on perfboard. This development board was used to tune the **TLP785GB** optocoupler biasing resistors (`R3`/`R4`), verify power rail decoupling (`100 µF`) on the **PCM5102A** DAC, and benchmark the dual-core `@micropython.viper` audio engine in real time.
+
+<img width="833" height="492" alt="image" src="https://github.com/user-attachments/assets/53d46fe3-39ef-4993-a8fe-07815b479253" />
+
+
 
 ---
 
@@ -76,6 +96,8 @@ Most GY-PCM5102 DAC breakout boards ship with their configuration pads open on t
 uCompute-Studio/
 ├── Gerber_PCB_uCompute-Studio.zip   # Ready-to-manufacture Gerber files
 ├── Schematic_uCompute-Studio.pdf    # Full electronic schematic (EasyEDA)
+├── images/
+│   └── prototype_perfboard.jpg      # Hand-wired perfboard hardware prototype
 ├── firmware/
 │   ├── main.py                      # Real-time Viper MIDI synthesizer
 │   └── tests/
