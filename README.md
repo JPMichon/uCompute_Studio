@@ -163,7 +163,7 @@ Because **uCompute-Studio** pairs isolated hardware MIDI I/O and high-resolution
 
 ## 📜 License & Ecosystem
 
-This project is part of the **[uCompute Ecosystem](https://github.com)** and is released under the **Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)** license. Commercial manufacturing or distribution of bare PCBs, kits, or derivatives is prohibited without prior authorization.
+This project is part of the **[uCompute Ecosystem](https://github.com/JPMichon/uCompute-Ecosystem)** and is released under the **Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)** license. Commercial manufacturing or distribution of bare PCBs, kits, or derivatives is prohibited without prior authorization.
 
 ---
 
