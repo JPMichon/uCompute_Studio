@@ -39,7 +39,7 @@ Thanks to its standard **2.54 mm (0.1") pitch** 14-pin expansion header (**H1**)
 | **GP01** | **GP01** | Pin 2 | MIDI IN (`UART0 RX`) |
 | **GP00** | **GP00** | Pin 1 | MIDI OUT (`UART0 TX`) |
 
-> **💡 Power Tip:** Make sure to connect **5V** on `H1` to **VBUS** (Pin 40) on the Pico so the onboard `PCM5102A` DAC and the opto-isolated MIDI circuit receive full 5V USB power.
+> **💡 Power Tip:** Make sure to connect **5V** on `H1` to **VBUS** (Pin 40) on the Pico so the 74HCT14D, the onboard `PCM5102A` DAC and the opto-isolated MIDI circuit receive full 5V USB power.
 
 ---
 
