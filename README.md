@@ -63,7 +63,8 @@ Most GY-PCM5102 DAC breakout boards ship with their configuration pads open on t
 <img width="1727" height="1108" alt="image" src="https://github.com/user-attachments/assets/76f9e6f0-e4ea-412d-8429-b20c8c6e6f71" />
 <br>
 
-As show on picture
+*As shown in the photo above, bridge **H1L**, **H2L**, and **H4L** to the **L** side (bottom pads), and bridge **H3L (`XSMT`)** to the **H** side (top pad, indicated by the arrow) to enable audio output.*
+
 
 | Pad | Pin Name | Setting | Function |
 | :---: | :---: | :---: | :--- |
