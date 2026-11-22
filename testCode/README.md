@@ -4,6 +4,12 @@ This directory contains a collection of **MicroPython** scripts designed to vali
 
 ---
 
+## 📂 Required Libraries (`testCode/lib/`)
+
+The **`lib/`** subfolder holds essential MicroPython drivers (such as the **ST7789** display driver, **MicroSD** SPI interface, and custom helpers) required for playback and display scripts. Copy the entire contents of `testCode/lib/` to the root `/lib` directory on your board's filesystem.
+
+---
+
 ## 📋 Script Overview
 
 ### 1. 🔊 I2S Audio & DAC Verification (`PCM5102A`)
