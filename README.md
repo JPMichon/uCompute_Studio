@@ -78,7 +78,7 @@ Most GY-PCM5102 DAC breakout boards ship with their configuration pads open on t
 
 **uCompute-Studio** uses compact 5-pin **JST XH-5A (2.54 mm)** headers for `MIDI-IN` and `MIDI-OUT`. Beyond keeping the PCB footprint compact and providing generous pin spacing, this modular connector approach allows you to easily build interchangeable adapter cables for **any standard MIDI physical format** — whether classic **5-pin DIN**, **1/8" (3.5 mm) TRS** (Type A or Type B), or **1/4" (6.35 mm) TRS** — saving you from having to buy bulky commercial MIDI adapters or stack dongles.
 
-<img width="719" height="380" alt="image" src="https://github.com/user-attachments/assets/3c6f23c7-544b-41a8-b283-e5bc9ac65bb6" /><br>
+<img width="692" height="361" alt="image" src="https://github.com/user-attachments/assets/82ff1be7-ed7c-4b91-a10c-3852a8165c8f" /> <br>
 <img width="1022" height="206" alt="image" src="https://github.com/user-attachments/assets/cd95eaa6-82cb-49d7-8074-0b840c8683f4" />
 
 ### Pinout Mapping (JST XH-5A to DIN-5 & TRS)
