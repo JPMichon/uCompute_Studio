@@ -86,6 +86,40 @@ Most GY-PCM5102 DAC breakout boards ship with their configuration pads open on t
 
 ---
 
+## 📋 Bill of Materials (BOM)
+
+### PCB Components
+
+| Qty | Designator | Component / Value | Package / Footprint | Notes |
+| :---: | :--- | :--- | :--- | :--- |
+| **1** | `AUDIO` | JST XH 2.54mm 3-Pin Header | `CONN-TH_XH2.54_3PIN` | Stereo analog audio output (`LEFT`, `AGND`, `RIGHT`) |
+| **2** | `MIDI-IN`, `MIDI-OUT` | JST XH-5A 2.50mm 5-Pin Header | `CONN-TH_5P-P2.50_XH-5A` | Modular MIDI interface connectors |
+| **2** | `IN`, `OUT` | Green LED 0805 | `LED0805-RD_GREEN` | MIDI IN / OUT activity indicators |
+| **1** | `5V` | Blue LED 0805 | `LED0805-RD_BLUE` | Power indicator |
+| **2** | `C3`, `C5` | 10 nF Capacitor | `C0805` | Decoupling / filtering |
+| **1** | `C4` | 100 µF Electrolytic Capacitor | `CAP-SMD_BD5.0-L5.3-W5.3-LS6.3-FD` | 5V power rail decoupling for DAC |
+| **1** | `D9` | 1N4148W Switching Diode | `SOD-123FL_L2.8-W1.8-LS3.7-RD` | Reverse-polarity protection (`1N5819` also compatible) |
+| **1** | `H1` | Pin Header 14-Pin (2.54 mm) | `HDR-TH_14P-P2.54-V-M` | Main expansion bus connector |
+| **1** | `R2` | 2 kΩ Resistor | `R0805` | — |
+| **1** | `R3` | 390 Ω Resistor | `R0805` | Calibrated MIDI optocoupler biasing |
+| **1** | `R4` | 470 Ω Resistor | `R0805` | Calibrated MIDI optocoupler pull-up |
+| **2** | `R5`, `R6` | 220 Ω Resistor | `R0805` | MIDI current-loop limiting |
+| **2** | `R7`, `R8` | 1 kΩ Resistor | `R0805` | LED current limiting |
+| **1** | `U2` | TLP785GB Optocoupler | `SOP-4_L6.5-W4.6-P2.54-LS10.0` | High-CTR MIDI-IN optical isolation |
+| **1** | `U3` | 74HCT14D Hex Schmitt Inverter | `SOP-14_L8.7-W3.9-P1.27-LS6.0-BL` | Activity LED buffer & MIDI-OUT driver |
+| **1** | `U4` | PCM5102A DAC Module | `GY-PCM5102` | Stereo I2S DAC *(bridge jumpers before soldering)* |
+
+### MIDI Adapter Cable Accessories
+
+| Qty | Item | Description |
+| :---: | :--- | :--- |
+| **2** | DIN-5 Female Socket | Standard 5-pin 180° MIDI panel-mount connectors *(or 1/8" / 1/4" TRS plugs)* |
+| **2** | JST XH-5A Female Housing | 5-pin crimp connector housings (with crimp terminals) |
+| **6** | Hookup Wires | 3 wires per adapter cable (`GND`, `SOURCE`, `SINK`) |
+| — | Heat-Shrink Tubing | For insulating soldered DIN-5 / TRS pins |
+
+---
+
 ## 🔌 MIDI Connector & Adapter Cable Wiring (JST XH-5A)
 
 **uCompute-Studio** uses compact 5-pin **JST XH-5A (2.54 mm)** headers for `MIDI-IN` and `MIDI-OUT`. Beyond keeping the PCB footprint compact and providing generous pin spacing, this modular connector approach allows you to easily build interchangeable adapter cables for **any standard MIDI physical format** — whether classic **5-pin DIN**, **1/8" (3.5 mm) TRS** (Type A or Type B), or **1/4" (6.35 mm) TRS** — saving you from having to buy bulky commercial MIDI adapters or stack dongles.
