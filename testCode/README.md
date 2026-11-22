@@ -68,8 +68,12 @@ Scripts for streaming `.mid` files stored on a MicroSD card out to external MIDI
    >
    > ---
 
+---
+
+---
+
 ## 🤖 Development & AI Transparency Note
 
-In the spirit of open-source transparency: the hardware diagnostic routines, basic test scripts, and low-level MicroSD MIDI streaming parser were generated with AI assistance to accelerate hardware bring-up and validation. The main **Standalone MIDI Jukebox** application (`st7789_Midi_SD_Jukebox_V2.py`), UI logic, and overall system integration were designed, written, and tested on real hardware by the author.
+**Hardware vs. Firmware:** The entire **uCompute** ecosystem architecture, electronic schematics, component calibration, and PCB layouts are 100% original hardware designs created by the author.
 
-
+As a hardware-focused designer, AI assistance was used to generate the standalone diagnostic/test scripts and the low-level MicroSD MIDI streaming engine (specifically for handling real-time MIDI event timings) to accelerate hardware bring-up and validation. Around **90% of the Standalone MIDI Jukebox** (`st7789_Midi_SD_Jukebox_V2.py`) — including the application architecture, user interface, and hardware integration — was coded directly by the author.
