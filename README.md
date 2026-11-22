@@ -60,12 +60,18 @@ Before committing to the final 2-layer PCB fabrication, the circuit was fully pr
 
 Most GY-PCM5102 DAC breakout boards ship with their configuration pads open on the underside. Before soldering the module onto **uCompute-Studio**, you **must bridge the 4 solder jumpers** on the back of the PCM5102A PCB as follows:
 
+<img width="1727" height="1108" alt="image" src="https://github.com/user-attachments/assets/76f9e6f0-e4ea-412d-8429-b20c8c6e6f71" />
+<br>
+
+As show on picture
+
 | Pad | Pin Name | Setting | Function |
 | :---: | :---: | :---: | :--- |
 | **H1L** | `FLT` | **L** (GND) | Normal latency digital filter |
 | **H2L** | `DEMP` | **L** (GND) | De-emphasis filter disabled |
 | **H3L** | `XSMT` | **H** (3.3V) | **Soft Un-Mute** (board stays silent if left open or at L) |
 | **H4L** | `FMT` | **L** (GND) | Standard I2S audio format |
+<br>
 
 > **Note:** On the **uCompute-Studio** PCB, the `SCK` pin of the PCM5102A is tied directly to `GND`, allowing the DAC to generate its internal system clock from `BCK`.
 
@@ -115,25 +121,6 @@ Following the MIDI 1.0 electrical specification (only 3 conductors are required:
 
 3. **`firmware/tests/test_midi_monitor.py` — Hardware MIDI Diagnostic:**
    - Monitors incoming Note On/Off, Control Change, and Pitch Bend messages on `GP01` and echoes data to `MIDI-OUT` (`GP00`) to validate optocoupler timing and status LEDs.
-
----
-
-## 📂 Repository Contents
-
-```text
-uCompute-Studio/
-├── Gerber_PCB_uCompute-Studio.zip   # Ready-to-manufacture Gerber files
-├── Schematic_uCompute-Studio.pdf    # Full electronic schematic (EasyEDA)
-├── images/
-│   └── prototype_perfboard.jpg      # Hand-wired perfboard hardware prototype
-├── firmware/
-│   ├── main.py                      # Real-time Viper MIDI synthesizer
-│   └── tests/
-│       ├── test_dac_stereo_mario.py # Stereo & polyphonic DAC test
-│       └── test_midi_monitor.py     # MIDI IN/OUT hardware diagnostic
-├── LICENSE                          # CC BY-NC-SA 4.0 License
-└── README.md
-```
 
 ---
 
