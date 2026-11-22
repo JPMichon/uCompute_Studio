@@ -118,6 +118,9 @@ Most GY-PCM5102 DAC breakout boards ship with their configuration pads open on t
 | **6** | Hookup Wires | 3 wires per adapter cable (`GND`, `SOURCE`, `SINK`) |
 | — | Heat-Shrink Tubing | For insulating soldered DIN-5 / TRS pins |
 
+
+> **💰 Estimated Build Cost:** Sourcing components in small batches (JLCPCB, LCSC, AliExpress) brings the total hardware cost to approximately **$6–$7 USD (~$8.50 CAD) per unit** (excluding the Raspberry Pi Pico), including the PCM5102A DAC module, PCB, and both MIDI adapter cables.
+
 ---
 
 ## 🔌 MIDI Connector & Adapter Cable Wiring (JST XH-5A)
