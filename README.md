@@ -2,7 +2,11 @@
 
 **uCompute-Studio** is an open-architecture I2S audio and MIDI expansion board designed to enrich the **uCompute Ecosystem**. Thanks to its open, standardized pinout, it can also be used directly as a standalone synthesizer and MIDI interface with a **vanilla Raspberry Pi Pico (RP2040 / RP2350)** — no carrier board required.
 
+<img width="1003" height="451" alt="image" src="https://github.com/user-attachments/assets/59799987-61ee-4314-898c-2d1ac9b2d84a" />
+
 Based on the hardware design of [MidiSynth-HAT](https://github.com/JPMichon/MidiSynth-HAT), **uCompute-Studio** brings high-fidelity 32-bit I2S stereo audio and hardware MIDI IN/OUT to compact microcontroller projects.
+
+
 
 ---
 
