@@ -93,9 +93,7 @@ Following the MIDI 1.0 electrical specification (only 3 conductors are required:
 | **Pin 4 (`SOURCE`)** |  **Pin 4** | Current Source ( +5V via resistor)  |
 | **Pin 5 (`SINK`)** | **Pin 5** | Current Sink (Data Signal) |
 
-> **⚠️ Soldering Tip:** Always verify the pin numbers molded into your DIN-5 housing (**Pin 4** to XH-5A **Pin 5 `SOURCE`**, **Pin 5** to XH-5A **Pin 1 `SINK`**, and **Pin 2** to XH-5A **Pin 2 `GND`**; outer pins 1 and 3 remain unconnected). For **TRS Type B** adapters, simply swap `SOURCE` (Tip) and `SINK` (Ring).
-
-
+> **⚠️ Soldering Tip:** Always verify the pin numbers molded into your DIN-5 housing (**Pin 4** to XH-5A **Pin 4 `SOURCE`**, **Pin 5** to XH-5A **Pin 5 `SINK`**, and **Pin 2** to XH-5A **Pin 2 `GND`**; outer pins 1 and 3 remain unconnected). For **TRS Type B** adapters, simply swap `SOURCE` (Tip) and `SINK` (Ring).
 
 ---
 
