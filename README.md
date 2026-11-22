@@ -77,8 +77,8 @@ Before committing to the final 2-layer PCB fabrication, the circuit was fully pr
 | **I2S Data (DIN)** | `GP16` | `PCM5102A DIN` | Serial Audio Data |
 | **I2S Bit Clock (BCK)** | `GP17` | `PCM5102A BCK` | Bit Clock |
 | **I2S Word Select (LCK)** | `GP18` | `PCM5102A LCK` | Left/Right Clock (`BCK + 1` required by MicroPython) |
-| **Power (DAC)** | `VBUS` | `PCM5102A VIN` | 5V supply (internal 3.3V LDO on DAC module) |
-| **Logic & MIDI Supply** | `5V` | `5V` | Powers `74HCT14D`, pull-up, and MIDI loop |
+| **Power (DAC)** | `VBUS` | `PCM5102A VIN` | 5V supply  |
+| **Logic & MIDI Supply** | `5V` | `5V` | Powers `74HCT14D`, PCM5102A, and MIDI loop |
 | **Pull-up (RX)** | `GP01` | `3V3` | 3.3V Required for R4 pull-ups |
 
 ---
@@ -97,7 +97,7 @@ Most GY-PCM5102 DAC breakout boards ship with their configuration pads open on t
 | :---: | :---: | :---: | :--- |
 | **H1L** | `FLT` | **L** (GND) | Normal latency digital filter |
 | **H2L** | `DEMP` | **L** (GND) | De-emphasis filter disabled |
-| **H3L** | `XSMT` | **H** (3.3V) | **Soft Un-Mute** (board stays silent if left open or at L) |
+| **H3L** | `XSMT` | **H** (VCC) | **Soft Un-Mute** (board stays silent if left open or at L) |
 | **H4L** | `FMT` | **L** (GND) | Standard I2S audio format |
 <br>
 
