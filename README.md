@@ -27,9 +27,10 @@ Thanks to its standard **2.54 mm (0.1") pitch** 14-pin expansion header (**H1**)
 1. **Mount the Headers:** Solder a straight 14-pin male header (`2.54 mm`) to the **H1** expansion port on **uCompute-Studio** (pointing downward) and standard male headers to your **Raspberry Pi Pico**.
 2. **Seat on Breadboard:** Insert both the **Raspberry Pi Pico** and **uCompute-Studio** across the center trench of your breadboard. *(Tip: Verify the silkscreen labels on **H1** — `5V`, `GND`, `3V3`, `GP16`–`GP18`, `GP00`–`GP01` — so you keep track of each row).*
 3. **Connect the Jumper Wires:** Using 8 standard male-to-male jumper wires, link the **H1** pins to the corresponding Raspberry Pi Pico pins:
-
+<br><br>
 > **💡 Insert the Raspberry Pi Pico across the center trench of your breadboard, and plug the 14-pin H1 header of uCompute-Studio into a free row alongside it.**
 
+<br>
 
 | uCompute-Studio (`H1`) | Raspberry Pi Pico Pin | Physical Pin # | Signal Role |
 | :--- | :--- | :--- | :--- |
