@@ -50,7 +50,8 @@ Scripts for streaming `.mid` files stored on a MicroSD card out to external MIDI
 | :--- | :--- | :--- |
 | **`PlayMidi_SD.py`** | Core MicroSD `.mid` file parser and real-time MIDI event scheduler sending note/control data through **MIDI-OUT**. | `uCompute` (with SD) + External MIDI Synth |
 | **`Midi_player_FromSD.py`** | Standalone SD-card MIDI file player routine for sequential track playback. | `uCompute` (with SD) + External MIDI Synth |
-| **`st7789_Midi_SD_Jukebox_V2.py`** | Full-featured **Standalone MIDI Jukebox (V2)** with a **240×240 ST7789 IPS** graphical interface, track selection, real-time BPM/progress display, and MicroSD `.mid` streaming. | **RP2040 µCompute** / **RP2350 µCompute2** + `uCompute-Studio` |
+| **`st7789_Midi_SD_Jukebox_V2.py`** | Full-featured **Standalone MIDI Jukebox (V2)** with a **240×240 ST7789 IPS** graphical interface, track selection, real-time BPM/progress display, and MicroSD `.mid` streaming. | **µCompute Junior / µCompute / µCompute2** *(or equivalent)* + `uCompute-Studio` |
+
 
 > **⚙️ Board Configuration Tip (`IS_Junior` Flag):**
 > Before running `st7789_Midi_SD_Jukebox_V2.py`, check line 22 to match your hardware architecture (learn more about the lineup on [Hackaday.io](https://hackaday.io)):
