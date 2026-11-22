@@ -1,3 +1,16 @@
+# -----------------------------------------------------------------------------
+#  uCompute_Studio Midi JukeBox 
+#  Copyright (c) 2026 JP Michon
+#
+#  https://github.com/JPMichon/uCompute_Studio
+#
+#  Ce programme et le matériel associé sont protégés par la licence :
+#  Creative Commons Attribution - Pas d'Utilisation Commerciale - 
+#  Partage dans les Mêmes Conditions 4.0 International (CC BY-NC-SA 4.0)
+# -----------------------------------------------------------------------------
+# ST7789 Version
+
+
 from machine import Pin, SPI, UART, ADC
 import os, struct, utime, time
 import gc
