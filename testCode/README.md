@@ -65,3 +65,11 @@ Scripts for streaming `.mid` files stored on a MicroSD card out to external MIDI
    * **I2S Word Select (`LCK`):** `GP18`
 3. **Upload & Run:** Open any `.py` script in **Thonny** (or upload via `mpremote`) and run it directly on your board.
    > **Note for Jukebox / SD scripts:** Make sure your MicroSD card is formatted as **FAT32** and contains standard Type 0 or Type 1 `.mid` files in the expected folder path before running `st7789_Midi_SD_Jukebox_V2.py`.
+   >
+   > ---
+
+## 🤖 Development & AI Transparency Note
+
+In the spirit of open-source transparency: the hardware diagnostic routines, basic test scripts, and low-level MicroSD MIDI streaming parser were generated with AI assistance to accelerate hardware bring-up and validation. The main **Standalone MIDI Jukebox** application (`st7789_Midi_SD_Jukebox_V2.py`), UI logic, and overall system integration were designed, written, and tested on real hardware by the author.
+
+
