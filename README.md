@@ -139,3 +139,10 @@ uCompute-Studio/
 ## 📜 License & Ecosystem
 
 This project is part of the **[uCompute Ecosystem](https://github.com)** and is released under the **Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)** license. Commercial manufacturing or distribution of bare PCBs, kits, or derivatives is prohibited without prior authorization.
+
+---
+
+## ☕ Support the Project
+
+If you appreciate my work and would like to buy me a coffee to support my future soldering and coding projects on a voluntary basis, you can leave me a [**tip on Ko-fi** ](https://ko-fi.com/jpmichon). It is entirely optional and greatly appreciated!
+
