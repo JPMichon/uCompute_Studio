@@ -188,6 +188,11 @@ Because **uCompute-Studio** pairs isolated hardware MIDI I/O and high-resolution
 
 ---
 
+> **🔓 Open-Hardware Philosophy — No Custom PCB Required:**
+> This project is 100% open-source and open-hardware. While these scripts are tailored to the **uCompute** pinout for plug-and-play convenience, **you do not need my custom PCBs to run them**. Any maker can replicate the exact same setup on a solderless breadboard or perfboard using a standard **Raspberry Pi Pico / Pico 2** and off-the-shelf modules (ST7789 SPI display, MicroSD breakout, PCM5102A DAC, and opto-isolated MIDI circuit) by following the GPIO mapping defined at the top of each script.
+
+---
+
 ## 📜 License & Ecosystem
 
 This project is part of the **[uCompute Ecosystem](https://github.com/JPMichon/uCompute-Ecosystem)** and is released under the **Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)** license. Commercial manufacturing or distribution of bare PCBs, kits, or derivatives is prohibited without prior authorization.
