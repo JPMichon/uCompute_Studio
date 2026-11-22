@@ -85,13 +85,13 @@ Most GY-PCM5102 DAC breakout boards ship with their configuration pads open on t
 
 Following the MIDI 1.0 electrical specification (only 3 conductors are required: `SINK`, `GND`, and `SOURCE`). *Note: Any wire colors can be used as long as the pin-to-pin mapping below is respected.*
 
-| PCB Header (`JST XH-5A`) | DIN-5 Pin | 1/8" & 1/4" TRS (Type A) | MIDI Signal Function |
-| :---: | :---: | :---: | :--- |
-| **Pin 1 (`SINK`)** | **Pin 5** | **Tip** | Current Sink (Data Signal) |
-| **Pin 2 (`GND`)** | **Pin 2** (Center) | **Sleeve** | Shield / Ground *(connected on MIDI-OUT; optional/isolated on MIDI-IN)* |
-| **Pin 3 (`NC`)** | — | — | Unused (spacing / isolation) |
-| **Pin 4 (`NC`)** | — | — | Unused (spacing / isolation) |
-| **Pin 5 (`SOURCE`)** | **Pin 4** | **Ring** | Current Source (+3.3V / +5V via resistor) |
+| PCB Header (`JST XH-5A`) | DIN-5 Pin |  MIDI Signal Function |
+| :---: | :---: |  :--- |
+| **Pin 1 (`NC`)** | — | Unused (spacing / isolation) |
+| **Pin 2 (`GND`)** | **Pin 2** | Shield / Ground *(connected on MIDI-OUT; optional/isolated on MIDI-IN)* |
+| **Pin 3 (`NC`)** | — | Unused (spacing / isolation) |
+| **Pin 4 (`SOURCE`)** |  **Pin 4** | Current Source ( +5V via resistor)  |
+| **Pin 5 (`SINK`)** | **Pin 5** | Current Sink (Data Signal) |
 
 > **⚠️ Soldering Tip:** Always verify the pin numbers molded into your DIN-5 housing (**Pin 4** to XH-5A **Pin 5 `SOURCE`**, **Pin 5** to XH-5A **Pin 1 `SINK`**, and **Pin 2** to XH-5A **Pin 2 `GND`**; outer pins 1 and 3 remain unconnected). For **TRS Type B** adapters, simply swap `SOURCE` (Tip) and `SINK` (Ring).
 
