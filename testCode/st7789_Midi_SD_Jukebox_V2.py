@@ -1,16 +1,3 @@
-# -----------------------------------------------------------------------------
-#  uCompute_Studio Midi JukeBox 
-#  Copyright (c) 2026 JP Michon
-#
-#  https://github.com/JPMichon/uCompute_Studio
-#
-#  Ce programme et le matériel associé sont protégés par la licence :
-#  Creative Commons Attribution - Pas d'Utilisation Commerciale - 
-#  Partage dans les Mêmes Conditions 4.0 International (CC BY-NC-SA 4.0)
-# -----------------------------------------------------------------------------
-# ST7789 Version
-
-
 from machine import Pin, SPI, UART, ADC
 import os, struct, utime, time
 import gc
@@ -43,7 +30,7 @@ _Comm_EN = 12 # definition de la pin ENABLE du add-on module
 _Comm_RST = 10 # definition de la pin RESET du add-on module
 _TX_pin = 0 # definition de la pin TX
 _RX_Pin = 1 # definition de la pin RX
-
+_UART_Buffer = 1024 # taille du tampon de memoire pour le UART (512 ou 1024)
 
 # --- CONFIGURATION MATÉRIELLE ---
 if IS_Junior == True:
@@ -65,6 +52,14 @@ ErrorColor = st7789.RED
 
 # --- INITIALISATION ---
 BTN_Analogue = machine.ADC(_Boutons) #Diviseur de tension des boutons
+
+# utilise la led systeme comme inducateur de lecture de la carte SD
+try:
+    led_sd = Pin("LED", Pin.OUT)
+except TypeError:
+    led_sd = Pin(_Led_System, Pin.OUT) # Repli sur GP25 si firmware très ancien
+led_sd.value(0) # Éteinte par défaut
+
 # set landscape screen
 screen_width = 240
 screen_height = 240
@@ -106,7 +101,7 @@ utime.sleep(1)
  
 
 # MIDI UART0
-uart_midi = UART(0, baudrate=31250, bits=8, parity=None, stop=1, tx=Pin(_TX_pin))
+uart_midi = UART(0, baudrate=31250, bits=8, parity=None, stop=1, tx=Pin(_TX_pin), txbuf=_UART_Buffer)
 
 # --- FONCTIONS ---
 
@@ -180,9 +175,11 @@ class MidiTrackStream:
         self.next_tick = read_varlen(self.f)
 
     def read_next_event(self):
+        led_sd.value(1) # Allume la LED pendant la lecture sur la SD
         if self.finished or self.f.tell() >= self.end_offset:
             self.finished = True
             return None
+        
         b = self.f.read(1)
         if not b:
             self.finished = True
@@ -228,6 +225,7 @@ class MidiTrackStream:
             self.next_tick += read_varlen(self.f)
         else:
             self.finished = True
+        led_sd.value(0) # Éteint la LED dès que la lecture SPI est finie    
         return action
 
     def close(self):
@@ -368,7 +366,7 @@ splash_screen()
 
 while read_keys() =='null':
     utime.sleep(.1)
-    
+ 
 fbuf.fill(Background) # Efface l'écran (le framefuffer)
 display.blit_buffer(buffer, 0, 0, buffer_width, buffer_height)
 
