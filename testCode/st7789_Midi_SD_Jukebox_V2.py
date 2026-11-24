@@ -179,57 +179,53 @@ class MidiTrackStream:
             self.finished = True
             return None
 
-        led_sd.value(1)  # Allume la LED pendant la lecture sur la SD
-        try:
-            b = self.f.read(1)
-            if not b:
+        b = self.f.read(1)
+        if not b:
+            self.finished = True
+            return None
+        status = b[0]
+
+        if status < 0x80:
+            first_data = bytes([status])
+            status = self.running_status
+        else:
+            first_data = b""
+            if status < 0xF0:
+                self.running_status = status
+
+        evt_type = status & 0xF0
+
+        if evt_type in (0x80, 0x90, 0xA0, 0xB0, 0xE0):
+            rest = self.f.read(2 - len(first_data))
+            action = ("midi", bytes([status]) + first_data + rest)
+        elif evt_type in (0xC0, 0xD0):
+            rest = self.f.read(1 - len(first_data))
+            action = ("midi", bytes([status]) + first_data + rest)
+        elif status in (0xF0, 0xF7):
+            length = read_varlen(self.f)
+            data = self.f.read(length)
+            action = ("midi", (b"\xF0" + data) if status == 0xF0 else data)
+        elif status == 0xFF:
+            meta_type = self.f.read(1)[0]
+            length = read_varlen(self.f)
+            data = self.f.read(length)
+            if meta_type == 0x2F:
                 self.finished = True
                 return None
-            status = b[0]
-
-            if status < 0x80:
-                first_data = bytes([status])
-                status = self.running_status
-            else:
-                first_data = b""
-                if status < 0xF0:
-                    self.running_status = status
-
-            evt_type = status & 0xF0
-
-            if evt_type in (0x80, 0x90, 0xA0, 0xB0, 0xE0):
-                rest = self.f.read(2 - len(first_data))
-                action = ("midi", bytes([status]) + first_data + rest)
-            elif evt_type in (0xC0, 0xD0):
-                rest = self.f.read(1 - len(first_data))
-                action = ("midi", bytes([status]) + first_data + rest)
-            elif status in (0xF0, 0xF7):
-                length = read_varlen(self.f)
-                data = self.f.read(length)
-                action = ("midi", (b"\xF0" + data) if status == 0xF0 else data)
-            elif status == 0xFF:
-                meta_type = self.f.read(1)[0]
-                length = read_varlen(self.f)
-                data = self.f.read(length)
-                if meta_type == 0x2F:
-                    self.finished = True
-                    return None
-                elif meta_type == 0x51 and length == 3:
-                    tempo = (data[0] << 16) | (data[1] << 8) | data[2]
-                    action = ("tempo", tempo)
-                else:
-                    action = ("ignore", None)
+            elif meta_type == 0x51 and length == 3:
+                tempo = (data[0] << 16) | (data[1] << 8) | data[2]
+                action = ("tempo", tempo)
             else:
                 action = ("ignore", None)
+        else:
+            action = ("ignore", None)
 
-            if self.f.tell() < self.end_offset:
-                self.next_tick += read_varlen(self.f)
-            else:
-                self.finished = True
+        if self.f.tell() < self.end_offset:
+            self.next_tick += read_varlen(self.f)
+        else:
+            self.finished = True
+        return action
 
-            return action
-        finally:
-            led_sd.value(0)  # Éteint toujours la LED dès que la lecture SPI est finie
         
     def close(self):
         self.f.close()
@@ -372,19 +368,30 @@ while read_keys() =='null':
  
 fbuf.fill(Background) # Efface l'écran (le framefuffer)
 display.blit_buffer(buffer, 0, 0, buffer_width, buffer_height)
-led_sd.value(1)
 try:
     sd = sdcard.SDCard(spi_sd, Pin(_MicroSD_Select, Pin.OUT))
+    
+    # Allume la LED uniquement lors d'une vraie lecture matérielle (bloc de 512 octets)
+    _orig_readblocks = sd.readblocks
+    def _led_readblocks(block_num, buf):
+        led_sd.value(1)
+        try:
+            return _orig_readblocks(block_num, buf)
+        finally:
+            led_sd.value(0)
+    sd.readblocks = _led_readblocks
+
     os.mount(sd, '/sd') # Indispensable pour accéder aux fichiers via '/sd/musique.mid'
     print("SD Card mounted successfully")
 except Exception as e:
     sd = None
+    led_sd.value(0)
     fbuf.fill(ErrorColor) # Efface l'écran (le framefuffer)
     fbuf.large_text("No SD Card", 40, 90, 2, st7789.WHITE)
     fbuf.large_text("Detected", 50, 120, 2, st7789.WHITE)
     print("No SD Card detected:", e)
     display.blit_buffer(buffer, 0, 0, buffer_width, buffer_height)
-    sys.exit() # Arrête net le programme ici
+    sys.exit()# Arrête net le programme ici
 finally:
     led_sd.value(0)  
    
